@@ -298,17 +298,17 @@ bool Intelligence::completTableau(bool jouer)
     if (grilleRond[0][0]+grilleRond[0][1]+grilleRond[0][2]==2)
     {
         jouer=true;
-        if (grilleRond[0][0]==0)
+        if (grilleRond[0][0]==0 && grilleCroix[0][0]==0)
         {
             boutonX=0;
             boutonY=0;
         }
-        if (grilleRond[0][1]==0)
+        if (grilleRond[0][1]==0 && grilleCroix[0][1]==0)
         {
             boutonX=0;
             boutonY=1;
         }
-        if (grilleRond[0][2]==0)
+        if (grilleRond[0][2]==0 && grilleCroix[0][2]==0)
         {
             boutonX=0;
             boutonY=2;
@@ -318,17 +318,17 @@ bool Intelligence::completTableau(bool jouer)
     if (grilleRond[1][0]+grilleRond[1][1]+grilleRond[1][2]==2)
     {
         jouer=true;
-        if (grilleRond[1][0]==0)
+        if (grilleRond[1][0]==0 && grilleCroix[1][0]==0)
         {
             boutonX=1;
             boutonY=0;
         }
-        if (grilleRond[1][1]==0)
+        if (grilleRond[1][1]==0 && grilleCroix[1][1]==0)
         {
             boutonX=1;
             boutonY=1;
         }
-        if (grilleRond[1][2]==0)
+        if (grilleRond[1][2]==0 && grilleCroix[1][2]==0)
         {
             boutonX=1;
             boutonY=2;
@@ -338,17 +338,17 @@ bool Intelligence::completTableau(bool jouer)
     if (grilleRond[2][0]+grilleRond[2][1]+grilleRond[2][2]==2)
     {
         jouer=true;
-        if (grilleRond[2][0]==0)
+        if (grilleRond[2][0]==0 && grilleCroix[2][0]==0)
         {
             boutonX=2;
             boutonY=0;
         }
-        if (grilleRond[2][1]==0)
+        if (grilleRond[2][1]==0 && grilleCroix[2][1]==0)
         {
             boutonX=2;
             boutonY=1;
         }
-        if (grilleRond[2][2]==0)
+        if (grilleRond[2][2]==0 && grilleCroix[2][2]==0)
         {
             boutonX=2;
             boutonY=2;
@@ -359,17 +359,17 @@ bool Intelligence::completTableau(bool jouer)
     if (grilleRond[0][0]+grilleRond[1][0]+grilleRond[2][0]==2)
     {
         jouer=true;
-        if (grilleRond[0][0]==0)
+        if (grilleRond[0][0]==0 && grilleCroix[0][0]==0)
         {
             boutonX=0;
             boutonY=0;
         }
-        if (grilleRond[1][0]==0)
+        if (grilleRond[1][0]==0 && grilleCroix[1][0]==0)
         {
             boutonX=1;
             boutonY=0;
         }
-        if (grilleRond[2][0]==0)
+        if (grilleRond[2][0]==0 && grilleCroix[2][0]==0)
         {
             boutonX=2;
             boutonY=0;
@@ -379,17 +379,17 @@ bool Intelligence::completTableau(bool jouer)
     if (grilleRond[0][1]+grilleRond[1][1]+grilleRond[2][1]==2)
     {
         jouer=true;
-        if (grilleRond[0][1]==0)
+        if (grilleRond[0][1]==0 && grilleCroix[0][1]==0)
         {
             boutonX=0;
             boutonY=1;
         }
-        if (grilleRond[1][1]==0)
+        if (grilleRond[1][1]==0 && grilleCroix[1][1]==0)
         {
             boutonX=1;
             boutonY=1;
         }
-        if (grilleRond[2][1]==0)
+        if (grilleRond[2][1]==0 && grilleCroix[2][1]==0)
         {
             boutonX=2;
             boutonY=1;
@@ -399,17 +399,17 @@ bool Intelligence::completTableau(bool jouer)
     if (grilleRond[0][2]+grilleRond[1][2]+grilleRond[2][2]==2)
     {
         jouer=true;
-        if (grilleRond[0][2]==0)
+        if (grilleRond[0][2]==0 && grilleCroix[0][2]==0)
         {
             boutonX=0;
             boutonY=2;
         }
-        if (grilleRond[1][2]==0)
+        if (grilleRond[1][2]==0 && grilleCroix[1][2]==0)
         {
             boutonX=1;
             boutonY=2;
         }
-        if (grilleRond[2][2]==0)
+        if (grilleRond[2][2]==0 && grilleCroix[2][2]==0)
         {
             boutonX=2;
             boutonY=2;
@@ -420,17 +420,17 @@ bool Intelligence::completTableau(bool jouer)
     if (grilleRond[0][0]+grilleRond[1][1]+grilleRond[2][2]==2)
     {
         jouer=true;
-        if (grilleRond[0][0]==0)
+        if (grilleRond[0][0]==0 && grilleCroix[0][0]==0)
         {
             boutonX=0;
             boutonY=0;
         }
-        if (grilleRond[1][1]==0)
+        if (grilleRond[1][1]==0 && grilleCroix[1][1]==0)
         {
             boutonX=1;
             boutonY=1;
         }
-        if (grilleRond[2][2]==0)
+        if (grilleRond[2][2]==0 && grilleCroix[2][2]==0)
         {
             boutonX=2;
             boutonY=2;
@@ -440,17 +440,17 @@ bool Intelligence::completTableau(bool jouer)
     if (grilleRond[0][2]+grilleRond[1][1]+grilleRond[2][0]==2)
     {
         jouer=true;
-        if (grilleRond[0][2]==0)
+        if (grilleRond[0][2]==0 && grilleCroix[0][2]==0)
         {
             boutonX=0;
             boutonY=2;
         }
-        if (grilleRond[1][1]==0)
+        if (grilleRond[1][1]==0 && grilleCroix[1][1]==0)
         {
             boutonX=1;
             boutonY=1;
         }
-        if (grilleRond[2][0]==0)
+        if (grilleRond[2][0]==0 && grilleCroix[2][0]==0)
         {
             boutonX=2;
             boutonY=0;

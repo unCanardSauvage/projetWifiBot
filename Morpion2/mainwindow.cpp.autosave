@@ -481,5 +481,4 @@ void MainWindow::setIA()
         ui->B_selectIA->setText("IA");
     }
     MainWindow::on_B_effacer_clicked();
-
 }
