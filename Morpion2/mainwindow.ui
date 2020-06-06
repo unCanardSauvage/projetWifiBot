@@ -6,19 +6,83 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>425</width>
-    <height>489</height>
+    <width>418</width>
+    <height>470</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>418</width>
+    <height>0</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="B_effacer">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>40</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Effacer</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="quitter">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>X</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>350</y>
+      <width>171</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_2">
+     <item row="0" column="0">
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>Joueur 1 :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>Joueur 2 :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLCDNumber" name="lcdNumber_1"/>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLCDNumber" name="lcdNumber_2"/>
+     </item>
+    </layout>
+   </widget>
    <widget class="QPushButton" name="B_L1C1">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>120</y>
+      <x>31</x>
+      <y>80</y>
       <width>81</width>
       <height>81</height>
      </rect>
@@ -39,24 +103,11 @@
      </size>
     </property>
    </widget>
-   <widget class="QPushButton" name="B_effacer">
-    <property name="geometry">
-     <rect>
-      <x>130</x>
-      <y>80</y>
-      <width>111</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Effacer</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="B_L1C2">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>120</y>
+      <x>118</x>
+      <y>80</y>
       <width>81</width>
       <height>81</height>
      </rect>
@@ -74,8 +125,8 @@
    <widget class="QPushButton" name="B_L1C3">
     <property name="geometry">
      <rect>
-      <x>230</x>
-      <y>120</y>
+      <x>205</x>
+      <y>80</y>
       <width>81</width>
       <height>81</height>
      </rect>
@@ -93,8 +144,8 @@
    <widget class="QPushButton" name="B_L2C1">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>210</y>
+      <x>31</x>
+      <y>167</y>
       <width>81</width>
       <height>81</height>
      </rect>
@@ -112,8 +163,8 @@
    <widget class="QPushButton" name="B_L2C2">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>210</y>
+      <x>118</x>
+      <y>167</y>
       <width>81</width>
       <height>81</height>
      </rect>
@@ -131,8 +182,8 @@
    <widget class="QPushButton" name="B_L2C3">
     <property name="geometry">
      <rect>
-      <x>230</x>
-      <y>210</y>
+      <x>205</x>
+      <y>167</y>
       <width>81</width>
       <height>81</height>
      </rect>
@@ -150,8 +201,8 @@
    <widget class="QPushButton" name="B_L3C1">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>300</y>
+      <x>31</x>
+      <y>254</y>
       <width>81</width>
       <height>81</height>
      </rect>
@@ -169,8 +220,8 @@
    <widget class="QPushButton" name="B_L3C2">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>300</y>
+      <x>118</x>
+      <y>254</y>
       <width>81</width>
       <height>81</height>
      </rect>
@@ -188,8 +239,8 @@
    <widget class="QPushButton" name="B_L3C3">
     <property name="geometry">
      <rect>
-      <x>230</x>
-      <y>300</y>
+      <x>205</x>
+      <y>254</y>
       <width>81</width>
       <height>81</height>
      </rect>
@@ -204,11 +255,47 @@
      <string/>
     </property>
    </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>-10</y>
+      <width>421</width>
+      <height>441</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="image.qrc">
+      <normaloff>:/image2.png</normaloff>:/image2.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>450</width>
+      <height>450</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>305</x>
+      <y>113</y>
+      <width>43</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Difficulté</string>
+    </property>
+   </widget>
    <widget class="QPushButton" name="B_selectIA">
     <property name="geometry">
      <rect>
-      <x>330</x>
-      <y>40</y>
+      <x>305</x>
+      <y>85</y>
       <width>80</width>
       <height>22</height>
      </rect>
@@ -217,49 +304,63 @@
      <string>IA </string>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QSlider" name="verticalSlider">
     <property name="geometry">
      <rect>
-      <x>330</x>
-      <y>70</y>
-      <width>88</width>
-      <height>135</height>
+      <x>305</x>
+      <y>162</y>
+      <width>16</width>
+      <height>84</height>
      </rect>
     </property>
-    <layout class="QGridLayout" name="gridLayout_2">
-     <item row="0" column="0">
-      <widget class="QLabel" name="label">
-       <property name="text">
-        <string>Difficulté</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QSpinBox" name="spinBox"/>
-     </item>
-     <item row="2" column="0">
-      <widget class="QSlider" name="verticalSlider">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-      </widget>
-     </item>
-    </layout>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
    </widget>
+   <widget class="QSpinBox" name="spinBox">
+    <property name="geometry">
+     <rect>
+      <x>305</x>
+      <y>133</y>
+      <width>81</width>
+      <height>23</height>
+     </rect>
+    </property>
+   </widget>
+   <zorder>pushButton</zorder>
+   <zorder>B_effacer</zorder>
+   <zorder>quitter</zorder>
+   <zorder>layoutWidget</zorder>
+   <zorder>layoutWidget</zorder>
+   <zorder>B_L1C1</zorder>
+   <zorder>B_L1C2</zorder>
+   <zorder>B_L1C3</zorder>
+   <zorder>B_L2C1</zorder>
+   <zorder>B_L2C2</zorder>
+   <zorder>B_L2C3</zorder>
+   <zorder>B_L3C1</zorder>
+   <zorder>B_L3C2</zorder>
+   <zorder>B_L3C3</zorder>
+   <zorder>B_selectIA</zorder>
+   <zorder>spinBox</zorder>
+   <zorder>verticalSlider</zorder>
+   <zorder>label</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>425</width>
+     <width>418</width>
      <height>21</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <resources>
+  <include location="image.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>verticalSlider</sender>
@@ -268,12 +369,12 @@
    <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>360</x>
-     <y>183</y>
+     <x>315</x>
+     <y>292</y>
     </hint>
     <hint type="destinationlabel">
-     <x>387</x>
-     <y>128</y>
+     <x>352</x>
+     <y>172</y>
     </hint>
    </hints>
   </connection>
@@ -284,12 +385,12 @@
    <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>363</x>
-     <y>122</y>
+     <x>343</x>
+     <y>172</y>
     </hint>
     <hint type="destinationlabel">
-     <x>362</x>
-     <y>166</y>
+     <x>315</x>
+     <y>292</y>
     </hint>
    </hints>
   </connection>
@@ -300,8 +401,8 @@
    <slot>changerDiff()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>358</x>
-     <y>212</y>
+     <x>315</x>
+     <y>292</y>
     </hint>
     <hint type="destinationlabel">
      <x>342</x>
@@ -316,8 +417,8 @@
    <slot>setIA()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>341</x>
-     <y>71</y>
+     <x>303</x>
+     <y>102</y>
     </hint>
     <hint type="destinationlabel">
      <x>309</x>
@@ -325,9 +426,28 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>quitter</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>quitter()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>22</x>
+     <y>32</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>47</x>
+     <y>31</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>changerDiff()</slot>
   <slot>setIA()</slot>
+  <slot>quitter()</slot>
+  <slot>afficherScoreJ1()</slot>
+  <slot>afficherScoreJ2()</slot>
  </slots>
 </ui>

@@ -41,6 +41,11 @@ private:
     Intelligence grille;
 
     bool IA;
+
+    int scoreJ1;
+    int scoreJ2;
+
+
 private slots:
     void on_B_effacer_clicked();
     void on_B_L1C1_clicked();
@@ -54,7 +59,6 @@ private slots:
     void on_B_L3C3_clicked();
     void changerDiff();
     void setIA(); // permet de définir si on joue contre la IA ou en en PvP
-
-
+    void quitter();
 };
 #endif // MAINWINDOW_H

@@ -3,6 +3,7 @@
 #include "QMessageBox"
 #include "QPushButton"
 #include <iostream>
+#include "QLCDNumber"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -15,6 +16,19 @@ MainWindow::MainWindow(QWidget *parent)
     grille.getDifficulte();
     grille.initGrille();
     IA = true;
+    scoreJ1=scoreJ2=0;
+    this->ui->lcdNumber_1->display(scoreJ1);
+    this->ui->lcdNumber_2->display(scoreJ2);
+
+    QPalette pal(palette());
+    pal.setColor(QPalette::Background,QColor(153,217,234));
+
+    this->setAutoFillBackground(true);
+    this->setPalette(pal);
+
+
+
+    //ui->B_L1C1->setStyleSheet("background-color: white;");
 }
 
 MainWindow::~MainWindow()
@@ -35,8 +49,17 @@ void MainWindow::Update()
         ui->B_L3C1->setEnabled(false);
         ui->B_L3C2->setEnabled(false);
         ui->B_L3C3->setEnabled(false);
-        if (joueurActif == "JOUEUR_UN"){ QMessageBox::information(0,"Morpion","Bravo ! Joueur 1 a gagné");}
-        else{QMessageBox::information(0,"Morpion","Bravo ! Joueur 2 a gagné");}
+        if (joueurActif == "JOUEUR_UN"){
+            QMessageBox::information(0,"Morpion","Bravo ! Joueur 1 a gagné");
+            scoreJ1++;
+        }
+        else{
+            QMessageBox::information(0,"Morpion","Bravo ! Joueur 2 a gagné");
+            scoreJ2++;
+        }
+        this->ui->lcdNumber_1->display(scoreJ1);
+        this->ui->lcdNumber_2->display(scoreJ2);
+
     }
 }
 void MainWindow::on_B_effacer_clicked()
@@ -81,6 +104,7 @@ void MainWindow::on_B_effacer_clicked()
 
 void MainWindow::on_B_L1C1_clicked()
 {
+    std::cout << "L1C1" << std::endl;
     ligneDuHaut.ajoutMarque(joueurActif,Victoire);
     colonneDeGauche.ajoutMarque(joueurActif,Victoire);
     diagonaleUn.ajoutMarque(joueurActif,Victoire);
@@ -93,12 +117,19 @@ void MainWindow::on_B_L1C1_clicked()
         if(joueurActif == "JOUEUR_UN")
         {
            ui->B_L1C1->setText("X");
-           joueurActif = "JOUEUR_DEUX";
-           grille.choix();
-           quelBouton();
+           std::cout<<"joueur a joué"<<std::endl;
+           if (Victoire==false){
+               joueurActif = "JOUEUR_DEUX";
+               grille.choix();
+               quelBouton();
+           }
+           else{
+               std::cout << "j'ai perdu :(" << std::endl;
+           }
         }
         else
         {
+            std::cout<<"IA a joué"<<std::endl;
             std::cout<<"C'est mon tour !"<<std::endl;
             ui->B_L1C1->setText("O");
             joueurActif = "JOUEUR_UN";
@@ -123,6 +154,7 @@ void MainWindow::on_B_L1C1_clicked()
 
 void MainWindow::on_B_L1C2_clicked()
 {
+    std::cout << "L1C2" << std::endl;
     ligneDuHaut.ajoutMarque(joueurActif,Victoire);
     colonneDuMilieu.ajoutMarque(joueurActif,Victoire);
     grille.setGrille(1, 2, joueurActif);
@@ -133,12 +165,19 @@ void MainWindow::on_B_L1C2_clicked()
         if(joueurActif == "JOUEUR_UN")
         {
            ui->B_L1C2->setText("X");
-           joueurActif = "JOUEUR_DEUX";
-           grille.choix();
-           quelBouton();
+           std::cout<<"joueur a joué"<<std::endl;
+           if (Victoire==false){
+               joueurActif = "JOUEUR_DEUX";
+               grille.choix();
+               quelBouton();
+           }
+           else{
+               std::cout << "j'ai perdu :(" << std::endl;
+           }
         }
         else
         {
+            std::cout<<"IA a joué"<<std::endl;
             std::cout<<"C'est mon tour !"<<std::endl;
             ui->B_L1C2->setText("O");
             joueurActif = "JOUEUR_UN";
@@ -163,6 +202,7 @@ void MainWindow::on_B_L1C2_clicked()
 
 void MainWindow::on_B_L1C3_clicked()
 {
+    std::cout << "L1C3" << std::endl;
     ligneDuHaut.ajoutMarque(joueurActif,Victoire);
     colonneDeDroite.ajoutMarque(joueurActif,Victoire);
     diagonaleDeux.ajoutMarque(joueurActif,Victoire);
@@ -174,12 +214,19 @@ void MainWindow::on_B_L1C3_clicked()
         if(joueurActif == "JOUEUR_UN")
         {
            ui->B_L1C3->setText("X");
-           joueurActif = "JOUEUR_DEUX";
-           grille.choix();
-           quelBouton();
+           std::cout<<"joueur a joué"<<std::endl;
+           if (Victoire==false){
+               joueurActif = "JOUEUR_DEUX";
+               grille.choix();
+               quelBouton();
+           }
+           else{
+               std::cout << "j'ai perdu :(" << std::endl;
+           }
         }
         else
         {
+            std::cout<<"IA a joué"<<std::endl;
             std::cout<<"C'est mon tour !"<<std::endl;
             ui->B_L1C3->setText("O");
             joueurActif = "JOUEUR_UN";
@@ -203,6 +250,7 @@ void MainWindow::on_B_L1C3_clicked()
 
 void MainWindow::on_B_L2C1_clicked()
 {
+    std::cout << "L2C1" << std::endl;
     ligneDuMilieu.ajoutMarque(joueurActif,Victoire);
     colonneDeGauche.ajoutMarque(joueurActif,Victoire);
     grille.setGrille(2, 1, joueurActif);
@@ -213,12 +261,19 @@ void MainWindow::on_B_L2C1_clicked()
         if(joueurActif == "JOUEUR_UN")
         {
            ui->B_L2C1->setText("X");
-           joueurActif = "JOUEUR_DEUX";
-           grille.choix();
-           quelBouton();
+           std::cout<<"joueur a joué"<<std::endl;
+           if (Victoire==false){
+               joueurActif = "JOUEUR_DEUX";
+               grille.choix();
+               quelBouton();
+           }
+           else{
+               std::cout << "j'ai perdu :(" << std::endl;
+           }
         }
         else
         {
+            std::cout<<"IA a joué"<<std::endl;
             std::cout<<"C'est mon tour !"<<std::endl;
             ui->B_L2C1->setText("O");
             joueurActif = "JOUEUR_UN";
@@ -241,6 +296,7 @@ void MainWindow::on_B_L2C1_clicked()
 
 void MainWindow::on_B_L2C2_clicked()
 {
+    std::cout << "L2C2" << std::endl;
     ligneDuMilieu.ajoutMarque(joueurActif,Victoire);
     colonneDuMilieu.ajoutMarque(joueurActif,Victoire);
     diagonaleUn.ajoutMarque(joueurActif,Victoire);
@@ -253,12 +309,19 @@ void MainWindow::on_B_L2C2_clicked()
         if(joueurActif == "JOUEUR_UN")
         {
            ui->B_L2C2->setText("X");
-           joueurActif = "JOUEUR_DEUX";
-           grille.choix();
-           quelBouton();
+            std::cout<<"joueur a joué"<<std::endl;
+           if (Victoire==false){
+               joueurActif = "JOUEUR_DEUX";
+               grille.choix();
+               quelBouton();
+           }
+           else{
+               std::cout << "j'ai perdu :(" << std::endl;
+           }
         }
         else
         {
+            std::cout<<"IA a joué"<<std::endl;
             std::cout<<"C'est mon tour !"<<std::endl;
             ui->B_L2C2->setText("O");
             joueurActif = "JOUEUR_UN";
@@ -282,6 +345,7 @@ void MainWindow::on_B_L2C2_clicked()
 
 void MainWindow::on_B_L2C3_clicked()
 {
+    std::cout << "L2C3" << std::endl;
     ligneDuMilieu.ajoutMarque(joueurActif,Victoire);
     colonneDeDroite.ajoutMarque(joueurActif,Victoire);
     grille.setGrille(2, 3, joueurActif);
@@ -292,12 +356,19 @@ void MainWindow::on_B_L2C3_clicked()
         if(joueurActif == "JOUEUR_UN")
         {
            ui->B_L2C3->setText("X");
-           joueurActif = "JOUEUR_DEUX";
-           grille.choix();
-           quelBouton();
+           std::cout<<"joueur a joué"<<std::endl;
+           if (Victoire==false){
+               joueurActif = "JOUEUR_DEUX";
+               grille.choix();
+               quelBouton();
+           }
+           else{
+               std::cout << "j'ai perdu :(" << std::endl;
+           }
         }
         else
         {
+            std::cout<<"IA a joué"<<std::endl;
             std::cout<<"C'est mon tour !"<<std::endl;
             ui->B_L2C3->setText("O");
             joueurActif = "JOUEUR_UN";
@@ -319,6 +390,7 @@ void MainWindow::on_B_L2C3_clicked()
 
 void MainWindow::on_B_L3C1_clicked()
 {
+    std::cout << "L3C1" << std::endl;
     ligneDuBas.ajoutMarque(joueurActif,Victoire);
     colonneDeGauche.ajoutMarque(joueurActif,Victoire);
     diagonaleDeux.ajoutMarque(joueurActif,Victoire);
@@ -330,12 +402,19 @@ void MainWindow::on_B_L3C1_clicked()
         if(joueurActif == "JOUEUR_UN")
         {
            ui->B_L3C1->setText("X");
-           joueurActif = "JOUEUR_DEUX";
-           grille.choix();
-           quelBouton();
+           std::cout<<"joueur a joué"<<std::endl;
+           if (Victoire==false){
+               joueurActif = "JOUEUR_DEUX";
+               grille.choix();
+               quelBouton();
+           }
+           else{
+               std::cout << "j'ai perdu :(" << std::endl;
+           }
         }
         else
         {
+            std::cout<<"IA a joué"<<std::endl;
             std::cout<<"C'est mon tour !"<<std::endl;
             ui->B_L3C1->setText("O");
             joueurActif = "JOUEUR_UN";
@@ -357,6 +436,7 @@ void MainWindow::on_B_L3C1_clicked()
 
 void MainWindow::on_B_L3C2_clicked()
 {
+    std::cout << "L3C2" << std::endl;
     ligneDuBas.ajoutMarque(joueurActif,Victoire);
     colonneDuMilieu.ajoutMarque(joueurActif,Victoire);
     //std::cout<<colonneDuMilieu.getCroix()<<std::endl;
@@ -368,12 +448,19 @@ void MainWindow::on_B_L3C2_clicked()
         if(joueurActif == "JOUEUR_UN")
         {
            ui->B_L3C2->setText("X");
-           joueurActif = "JOUEUR_DEUX";
-           grille.choix();
-           quelBouton();
+           std::cout<<"joueur a joué"<<std::endl;
+           if (Victoire==false){
+               joueurActif = "JOUEUR_DEUX";
+               grille.choix();
+               quelBouton();
+           }
+           else{
+               std::cout << "j'ai perdu :(" << std::endl;
+           }
         }
         else
         {
+            std::cout<<"IA a joué"<<std::endl;
             std::cout<<"C'est mon tour !"<<std::endl;
             ui->B_L3C2->setText("O");
             joueurActif = "JOUEUR_UN";
@@ -395,8 +482,9 @@ void MainWindow::on_B_L3C2_clicked()
 
 void MainWindow::on_B_L3C3_clicked()
 {
+    std::cout << "L3C3" << std::endl;
     ligneDuBas.ajoutMarque(joueurActif,Victoire);
-    colonneDeGauche.ajoutMarque(joueurActif,Victoire);
+    colonneDeDroite.ajoutMarque(joueurActif,Victoire);
     diagonaleUn.ajoutMarque(joueurActif,Victoire);
     grille.setGrille(3, 3, joueurActif);
     grille.getGrille();
@@ -406,12 +494,19 @@ void MainWindow::on_B_L3C3_clicked()
         if(joueurActif == "JOUEUR_UN")
         {
            ui->B_L3C3->setText("X");
-           joueurActif = "JOUEUR_DEUX";
-           grille.choix();
-           quelBouton();
+           std::cout<<"joueur a joué"<<std::endl;
+           if (Victoire==false){
+               joueurActif = "JOUEUR_DEUX";
+               grille.choix();
+               quelBouton();
+           }
+           else{
+               std::cout << "j'ai perdu :(" << std::endl;
+           }
         }
         else
         {
+            std::cout<<"IA a joué"<<std::endl;
             std::cout<<"C'est mon tour !"<<std::endl;
             ui->B_L3C3->setText("O");
             joueurActif = "JOUEUR_UN";
@@ -438,30 +533,40 @@ void MainWindow::quelBouton()
     x++;
     y++;
     std::cout<<"x"<<grille.getBoutonX()<<"y"<<grille.getBoutonY()<<std::endl;
-   if (x == 1 && y == 1)
-       on_B_L1C1_clicked();
-   if (x == 1 && y == 2)
-       on_B_L1C2_clicked();
-   if (x == 1 && y == 3)
-       on_B_L1C3_clicked();
-   if (x == 2 && y == 1)
-       on_B_L2C1_clicked();
-   if (x == 2 && y == 2)
-       on_B_L2C2_clicked();
-   if (x == 2 && y == 3)
-       on_B_L2C3_clicked();
-   if (x == 3 && y == 1)
-       on_B_L3C1_clicked();
-   if (x == 3 && y == 2)
-       on_B_L3C2_clicked();
-   if (x == 3 && y == 3)
-       on_B_L3C3_clicked();
+
+    int sommeCroix = 0;
+    for (int i=0;i<3;i++){
+        for (int j=0;j<3;j++){
+            sommeCroix=sommeCroix+grille.getGrilleCroix(i, j);
+        }
+    }
+    if(sommeCroix<5){
+        if (x == 1 && y == 1)
+            on_B_L1C1_clicked();
+        if (x == 1 && y == 2)
+            on_B_L1C2_clicked();
+        if (x == 1 && y == 3)
+            on_B_L1C3_clicked();
+        if (x == 2 && y == 1)
+            on_B_L2C1_clicked();
+        if (x == 2 && y == 2)
+            on_B_L2C2_clicked();
+        if (x == 2 && y == 3)
+            on_B_L2C3_clicked();
+        if (x == 3 && y == 1)
+            on_B_L3C1_clicked();
+        if (x == 3 && y == 2)
+            on_B_L3C2_clicked();
+        if (x == 3 && y == 3)
+            on_B_L3C3_clicked();
+    }
 }
 
 
 void MainWindow::changerDiff()
 {
     ui->spinBox->value();
+    MainWindow::on_B_effacer_clicked();
     this->Update();
 }
 
@@ -481,5 +586,10 @@ void MainWindow::setIA()
         ui->B_selectIA->setText("IA");
     }
     MainWindow::on_B_effacer_clicked();
-
 }
+
+void MainWindow::quitter()
+{
+    this->close();
+}
+

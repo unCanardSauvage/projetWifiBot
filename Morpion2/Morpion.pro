@@ -20,18 +20,24 @@ SOURCES += \
     #joueur.cpp \
     intelligence.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    menuprincipal.cpp
 
 HEADERS += \
     casealign.h \
     #joueur.h \
     intelligence.h \
-    mainwindow.h
+    mainwindow.h \
+    menuprincipal.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    menuprincipal.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    image.qrc

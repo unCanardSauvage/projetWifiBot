@@ -10,6 +10,7 @@ int Intelligence::tirage()
 {
     // cette fonction va déterminer les choix de notre IA.
     int random = rand() % 100+1;
+    std::cout << "triage : " << random << std::endl;
     return random;
 }
 
@@ -94,20 +95,34 @@ void Intelligence::choix()
         }
     }*/
 
-    bool jouer=false;
-    jouer = completTableau(jouer);
-    if(jouer==false){
-        jouer = bloquerTableau(jouer);
-        std::cout << "bloquage" << std::endl;
+    int sommeCroix = 0;
+    for (int i=0;i<3;i++){
+        for (int j=0;j<3;j++){
+            sommeCroix=sommeCroix+grilleCroix[i][j];
+        }
     }
-    if(jouer==false){
-        jouer = jouerNormal(jouer);
-        std::cout << "normal" << std::endl;
+    if(sommeCroix < 5){
+        bool jouer=false;
+        int varAleatoire=tirage();
+        if(varAleatoire<difficulte){
+            jouer = completTableau(jouer);
+        }
+        else{
+            varAleatoire=tirage();
+        }
+        if(jouer==false && varAleatoire<difficulte){
+            jouer = bloquerTableau(jouer);
+            std::cout << "bloquage" << std::endl;
+        }
+        if(jouer==false){
+            jouer = jouerNormal(jouer);
+            std::cout << "normal" << std::endl;
+        }
+        std::cout << "mouahaha" << std::endl;
     }
+    else
+        std::cout<<"c'est fini"<<std::endl;
 
-
-
-    std::cout << "mouahaha" << std::endl;
 }
 
 int Intelligence::getBoutonX()
@@ -127,163 +142,179 @@ bool Intelligence::bloquerTableau(bool jouer)
     // LIGNES
     if (grilleCroix[0][0]+grilleCroix[0][1]+grilleCroix[0][2]==2)
     {
-        jouer=true;
-        if (grilleCroix[0][0]==0)
+        if (grille[0][0]==0)
         {
             boutonX=0;
             boutonY=0;
+            jouer=true;
         }
-        if (grilleCroix[0][1]==0)
+        if (grille[0][1]==0)
         {
             boutonX=0;
             boutonY=1;
+            jouer=true;
         }
-        if (grilleCroix[0][2]==0)
+        if (grille[0][2]==0)
         {
             boutonX=0;
             boutonY=2;
+            jouer=true;
         }
     }
 
     if (grilleCroix[1][0]+grilleCroix[1][1]+grilleCroix[1][2]==2)
     {
-        jouer=true;
-        if (grilleCroix[1][0]==0)
+        if (grille[1][0]==0)
         {
             boutonX=1;
             boutonY=0;
+            jouer=true;
         }
-        if (grilleCroix[1][1]==0)
+        if (grille[1][1]==0)
         {
             boutonX=1;
             boutonY=1;
+            jouer=true;
         }
-        if (grilleCroix[1][2]==0)
+        if (grille[1][2]==0)
         {
             boutonX=1;
             boutonY=2;
+            jouer=true;
         }
     }
 
     if (grilleCroix[2][0]+grilleCroix[2][1]+grilleCroix[2][2]==2)
     {
-        jouer=true;
-        if (grilleCroix[2][0]==0)
+        if (grille[2][0]==0)
         {
             boutonX=2;
             boutonY=0;
+            jouer=true;
         }
-        if (grilleCroix[2][1]==0)
+        if (grille[2][1]==0)
         {
             boutonX=2;
             boutonY=1;
+            jouer=true;
         }
-        if (grilleCroix[2][2]==0)
+        if (grille[2][2]==0)
         {
             boutonX=2;
             boutonY=2;
+            jouer=true;
         }
     }
 
     // COLONNES
     if (grilleCroix[0][0]+grilleCroix[1][0]+grilleCroix[2][0]==2)
     {
-        jouer=true;
-        if (grilleCroix[0][0]==0)
+        if (grille[0][0]==0)
         {
             boutonX=0;
             boutonY=0;
+            jouer=true;
         }
-        if (grilleCroix[1][0]==0)
+        if (grille[1][0]==0)
         {
             boutonX=1;
             boutonY=0;
+            jouer=true;
         }
-        if (grilleCroix[2][0]==0)
+        if (grille[2][0]==0)
         {
             boutonX=2;
             boutonY=0;
+            jouer=true;
         }
     }
 
     if (grilleCroix[0][1]+grilleCroix[1][1]+grilleCroix[2][1]==2)
     {
-        jouer=true;
-        if (grilleCroix[0][1]==0)
+        if (grille[0][1]==0)
         {
             boutonX=0;
             boutonY=1;
+            jouer=true;
         }
-        if (grilleCroix[1][1]==0)
+        if (grille[1][1]==0)
         {
             boutonX=1;
             boutonY=1;
+            jouer=true;
         }
-        if (grilleCroix[2][1]==0)
+        if (grille[2][1]==0)
         {
             boutonX=2;
             boutonY=1;
+            jouer=true;
         }
     }
 
     if (grilleCroix[0][2]+grilleCroix[1][2]+grilleCroix[2][2]==2)
     {
-        jouer=true;
-        if (grilleCroix[0][2]==0)
+        if (grille[0][2]==0)
         {
             boutonX=0;
             boutonY=2;
+            jouer=true;
         }
-        if (grilleCroix[1][2]==0)
+        if (grille[1][2]==0)
         {
             boutonX=1;
             boutonY=2;
+            jouer=true;
         }
-        if (grilleCroix[2][2]==0)
+        if (grille[2][2]==0)
         {
             boutonX=2;
             boutonY=2;
+            jouer=true;
         }
     }
 
     // DIAGONALES
     if (grilleCroix[0][0]+grilleCroix[1][1]+grilleCroix[2][2]==2)
     {
-        jouer=true;
-        if (grilleCroix[0][0]==0)
+        if (grille[0][0]==0)
         {
             boutonX=0;
             boutonY=0;
+            jouer=true;
         }
-        if (grilleCroix[1][1]==0)
+        if (grille[1][1]==0)
         {
             boutonX=1;
             boutonY=1;
+            jouer=true;
         }
-        if (grilleCroix[2][2]==0)
+        if (grille[2][2]==0)
         {
             boutonX=2;
             boutonY=2;
+            jouer=true;
         }
     }
 
     if (grilleCroix[0][2]+grilleCroix[1][1]+grilleCroix[2][0]==2)
     {
-        jouer=true;
-        if (grilleCroix[0][2]==0)
+        if (grille[0][2]==0)
         {
             boutonX=0;
             boutonY=2;
+            jouer=true;
         }
-        if (grilleCroix[1][1]==0)
+        if (grille[1][1]==0)
         {
             boutonX=1;
             boutonY=1;
+            jouer=true;
         }
-        if (grilleCroix[2][0]==0)
+        if (grille[2][0]==0)
         {
             boutonX=2;
             boutonY=0;
+            jouer=true;
         }
     }
 
@@ -298,17 +329,17 @@ bool Intelligence::completTableau(bool jouer)
     if (grilleRond[0][0]+grilleRond[0][1]+grilleRond[0][2]==2)
     {
         jouer=true;
-        if (grilleRond[0][0]==0 && grilleCroix[0][0]==0)
+        if (grille[0][0]==0)
         {
             boutonX=0;
             boutonY=0;
         }
-        if (grilleRond[0][1]==0 && grilleCroix[0][1]==0)
+        if (grille[0][1]==0)
         {
             boutonX=0;
             boutonY=1;
         }
-        if (grilleRond[0][2]==0 && grilleCroix[0][2]==0)
+        if (grille[0][2]==0)
         {
             boutonX=0;
             boutonY=2;
@@ -317,143 +348,157 @@ bool Intelligence::completTableau(bool jouer)
 
     if (grilleRond[1][0]+grilleRond[1][1]+grilleRond[1][2]==2)
     {
-        jouer=true;
-        if (grilleRond[1][0]==0 && grilleCroix[1][0]==0)
+        if (grille[1][0]==0)
         {
             boutonX=1;
             boutonY=0;
+            jouer=true;
         }
-        if (grilleRond[1][1]==0 && grilleCroix[1][1]==0)
+        if (grille[1][1]==0)
         {
             boutonX=1;
             boutonY=1;
+            jouer=true;
         }
-        if (grilleRond[1][2]==0 && grilleCroix[1][2]==0)
+        if (grille[1][2]==0)
         {
             boutonX=1;
             boutonY=2;
+            jouer=true;
         }
     }
 
     if (grilleRond[2][0]+grilleRond[2][1]+grilleRond[2][2]==2)
     {
-        jouer=true;
-        if (grilleRond[2][0]==0 && grilleCroix[2][0]==0)
+        if (grille[2][0]==0)
         {
             boutonX=2;
             boutonY=0;
+            jouer=true;
         }
-        if (grilleRond[2][1]==0 && grilleCroix[2][1]==0)
+        if (grille[2][1]==0)
         {
             boutonX=2;
             boutonY=1;
+            jouer=true;
         }
-        if (grilleRond[2][2]==0 && grilleCroix[2][2]==0)
+        if (grille[2][2]==0)
         {
             boutonX=2;
             boutonY=2;
+            jouer=true;
         }
     }
 
     // COLONNES
     if (grilleRond[0][0]+grilleRond[1][0]+grilleRond[2][0]==2)
     {
-        jouer=true;
-        if (grilleRond[0][0]==0 && grilleCroix[0][0]==0)
+        if (grille[0][0]==0)
         {
             boutonX=0;
             boutonY=0;
+            jouer=true;
         }
-        if (grilleRond[1][0]==0 && grilleCroix[1][0]==0)
+        if (grille[1][0]==0)
         {
             boutonX=1;
             boutonY=0;
+            jouer=true;
         }
-        if (grilleRond[2][0]==0 && grilleCroix[2][0]==0)
+        if (grille[2][0]==0)
         {
             boutonX=2;
             boutonY=0;
+            jouer=true;
         }
     }
 
     if (grilleRond[0][1]+grilleRond[1][1]+grilleRond[2][1]==2)
     {
-        jouer=true;
-        if (grilleRond[0][1]==0 && grilleCroix[0][1]==0)
+        if (grille[0][1]==0)
         {
             boutonX=0;
             boutonY=1;
+            jouer=true;
         }
-        if (grilleRond[1][1]==0 && grilleCroix[1][1]==0)
+        if (grille[1][1]==0)
         {
             boutonX=1;
             boutonY=1;
+            jouer=true;
         }
-        if (grilleRond[2][1]==0 && grilleCroix[2][1]==0)
+        if (grille[2][1]==0)
         {
             boutonX=2;
             boutonY=1;
+            jouer=true;
         }
     }
 
     if (grilleRond[0][2]+grilleRond[1][2]+grilleRond[2][2]==2)
     {
-        jouer=true;
-        if (grilleRond[0][2]==0 && grilleCroix[0][2]==0)
+        if (grille[0][2]==0)
         {
             boutonX=0;
             boutonY=2;
+            jouer=true;
         }
-        if (grilleRond[1][2]==0 && grilleCroix[1][2]==0)
+        if (grille[1][2]==0)
         {
             boutonX=1;
             boutonY=2;
+            jouer=true;
         }
-        if (grilleRond[2][2]==0 && grilleCroix[2][2]==0)
+        if (grille[2][2]==0)
         {
             boutonX=2;
             boutonY=2;
+            jouer=true;
         }
     }
 
     // DIAGONALES
     if (grilleRond[0][0]+grilleRond[1][1]+grilleRond[2][2]==2)
     {
-        jouer=true;
-        if (grilleRond[0][0]==0 && grilleCroix[0][0]==0)
+        if (grille[0][0]==0)
         {
             boutonX=0;
             boutonY=0;
+            jouer=true;
         }
-        if (grilleRond[1][1]==0 && grilleCroix[1][1]==0)
+        if (grille[1][1]==0)
         {
             boutonX=1;
             boutonY=1;
+            jouer=true;
         }
-        if (grilleRond[2][2]==0 && grilleCroix[2][2]==0)
+        if (grille[2][2]==0)
         {
             boutonX=2;
             boutonY=2;
+            jouer=true;
         }
     }
 
     if (grilleRond[0][2]+grilleRond[1][1]+grilleRond[2][0]==2)
     {
-        jouer=true;
-        if (grilleRond[0][2]==0 && grilleCroix[0][2]==0)
+        if (grille[0][2]==0)
         {
             boutonX=0;
             boutonY=2;
+            jouer=true;
         }
-        if (grilleRond[1][1]==0 && grilleCroix[1][1]==0)
+        if (grille[1][1]==0)
         {
             boutonX=1;
             boutonY=1;
+            jouer=true;
         }
-        if (grilleRond[2][0]==0 && grilleCroix[2][0]==0)
+        if (grille[2][0]==0)
         {
             boutonX=2;
             boutonY=0;
+            jouer=true;
         }
     }
 
@@ -690,9 +735,13 @@ bool Intelligence::jouerNormal(bool jouer)
         }
     }
 
-    if(sommeCroix>3){
+    if(sommeCroix>3 && sommeCroix < 5){
         jouerRandom();
     }
 
     return jouer=true;
+}
+
+int Intelligence::getGrilleCroix(int x, int y){
+    return grilleCroix[x][y];
 }

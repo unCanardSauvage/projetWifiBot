@@ -25,6 +25,7 @@ public:
     void initGrille();
     void setDifficulte(int difficulte);
 
+    int getGrilleCroix(int x, int y);
     int getBoutonX();
     int getBoutonY();
 
