@@ -586,6 +586,10 @@ void MainWindow::setIA()
         ui->B_selectIA->setText("IA");
     }
     MainWindow::on_B_effacer_clicked();
+    scoreJ1 = 0;
+    scoreJ2 = 0;
+    this->ui->lcdNumber_1->display(scoreJ1);
+    this->ui->lcdNumber_2->display(scoreJ2);
 }
 
 void MainWindow::quitter()
