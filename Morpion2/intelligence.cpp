@@ -670,12 +670,42 @@ bool Intelligence::jouerNormal(bool jouer)
                 }
             }
             else{
+
                 jouerRandom();
                 cas3=false;
             }
         }
         else{
-            jouerRandom();
+            if(varAleatoire<difficulte){
+                if(grilleCroix[1][1]==1){
+                    int choisir=rand()%2;
+                    if((grilleCroix[0][0]==1 && grilleRond[2][2]==1) ||
+                            (grilleCroix[2][2]==1 && grilleRond[0][0]==1)){
+                        if(choisir==0){
+                            boutonX=0;
+                            boutonY=2;
+                        }
+                        else{
+                            boutonX=0;
+                            boutonY=2;
+                        }
+                    }
+                    if((grilleCroix[0][2]==1 && grilleRond[2][0]==1) ||
+                            (grilleCroix[2][0]==1 && grilleRond[0][2]==1)){
+                        if(choisir==0){
+                            boutonX=0;
+                            boutonY=0;
+                        }
+                        else{
+                            boutonX=2;
+                            boutonY=2;
+                        }
+                    }
+                }
+            }
+            else{
+              jouerRandom();
+            }
         }
     }
 
