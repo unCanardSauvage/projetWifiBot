@@ -328,21 +328,23 @@ bool Intelligence::completTableau(bool jouer)
     // LIGNES
     if (grilleRond[0][0]+grilleRond[0][1]+grilleRond[0][2]==2)
     {
-        jouer=true;
         if (grille[0][0]==0)
         {
             boutonX=0;
             boutonY=0;
+            jouer=true;
         }
         if (grille[0][1]==0)
         {
             boutonX=0;
             boutonY=1;
+            jouer=true;
         }
         if (grille[0][2]==0)
         {
             boutonX=0;
             boutonY=2;
+            jouer=true;
         }
     }
 
@@ -676,7 +678,7 @@ bool Intelligence::jouerNormal(bool jouer)
             }
         }
         else{
-            if(varAleatoire<difficulte){
+          /*  if(varAleatoire<difficulte){
                 if(grilleCroix[1][1]==1){
                     int choisir=rand()%2;
                     if((grilleCroix[0][0]==1 && grilleRond[2][2]==1) ||
@@ -705,7 +707,8 @@ bool Intelligence::jouerNormal(bool jouer)
             }
             else{
               jouerRandom();
-            }
+            }*/
+            jouerRandom();
         }
     }
 
